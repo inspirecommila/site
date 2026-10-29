@@ -209,3 +209,8 @@ button {
         transition-duration: 0.01ms !important;
     }
 }
+
+#nl-badge-frame,
+iframe[title="Powered by Netlify"] {
+    display: none !important;
+}
