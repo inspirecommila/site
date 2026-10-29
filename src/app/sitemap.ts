@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { NAVEGACAO } from '@/content/site';
 import { urlDoSite } from '@/lib/urlDoSite';
 
+export const dynamic = 'force-static';
+
 const BASE = urlDoSite();
 
 export default function sitemap(): MetadataRoute.Sitemap {

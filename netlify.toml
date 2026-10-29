@@ -1,14 +1,13 @@
-# Next.js 16 no Netlify. O adaptador OpenNext é aplicado automaticamente
-# a cada build; não fixe @netlify/plugin-nextjs.
+# Site estático. O Next gera a pasta out; o runtime de servidor fica desligado
+# para o Netlify publicar o HTML em vez da pasta .next.
 
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
 
 [build.environment]
   NODE_VERSION = "22"
-  # Alinha navegação e assets ao deploy que gerou a página.
-  NETLIFY_NEXT_SKEW_PROTECTION = "true"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 # Com domínio próprio, defina NEXT_PUBLIC_SITE_URL no painel do Netlify
 # (por exemplo https://camilameneses.com.br). Sem essa variável, o site usa
