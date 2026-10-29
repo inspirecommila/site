@@ -1,0 +1,116 @@
+.secao {
+    background: var(--cream-50);
+}
+
+.cabecalho {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.chamada {
+    max-width: 38ch;
+    color: var(--ink-soft);
+}
+
+.lista {
+    border-top: 1px solid var(--ink-faint);
+}
+
+.item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3rem 1fr auto;
+    align-items: center;
+    gap: 0.4rem 1.5rem;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--ink-faint);
+
+    @media (min-width: 900px) {
+        grid-template-columns: 4rem minmax(0, 1fr) minmax(0, 1.2fr) auto;
+        padding: 2.2rem 0;
+    }
+
+    &:hover {
+        .titulo {
+            transform: translateX(0.6rem);
+            font-style: italic;
+        }
+
+        .miniatura {
+            opacity: 1;
+            transform: translate(-50%, -50%) rotate(-3deg) scale(1);
+        }
+
+        .seta {
+            transform: translateX(0.4rem);
+            color: var(--gold-600);
+        }
+    }
+}
+
+.numero {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: var(--gold-600);
+}
+
+.titulo {
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.05;
+    transition: transform 0.6s var(--ease-out);
+}
+
+.resumo {
+    grid-column: 2 / -1;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+
+    @media (min-width: 900px) {
+        grid-column: auto;
+        max-width: 44ch;
+    }
+}
+
+.seta {
+    grid-row: 1;
+    grid-column: 3;
+    font-size: 1.3rem;
+    transition:
+        transform 0.5s var(--ease-out),
+        color 0.3s;
+
+    @media (min-width: 900px) {
+        grid-column: 4;
+    }
+}
+
+.miniatura {
+    position: absolute;
+    left: 58%;
+    top: 50%;
+    z-index: 2;
+    width: 150px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -40%) rotate(4deg) scale(0.85);
+    transition:
+        opacity 0.4s,
+        transform 0.7s var(--ease-out);
+    box-shadow: 0 24px 50px -20px rgba(21, 26, 20, 0.5);
+
+    img {
+        object-fit: cover;
+    }
+
+    @media (hover: none), (max-width: 899px) {
+        display: none;
+    }
+}

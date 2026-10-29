@@ -1,0 +1,44 @@
+.convite {
+    background: var(--cream-100);
+}
+
+.grade {
+    display: grid;
+    gap: 3.5rem;
+    align-items: center;
+
+    @media (min-width: 900px) {
+        grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.7fr);
+        gap: clamp(3rem, 8vw, 8rem);
+    }
+}
+
+.titulo {
+    margin-top: 1.6rem;
+    font-size: clamp(2.6rem, 6vw, 5.4rem);
+}
+
+.lead {
+    max-width: 48ch;
+    margin-top: 1.8rem;
+}
+
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem 2rem;
+    margin-top: 2.6rem;
+}
+
+.foto {
+    width: min(100%, 420px);
+    aspect-ratio: 3 / 4;
+    border-radius: 999px 999px 0 0;
+    justify-self: end;
+
+    @media (max-width: 899px) {
+        justify-self: start;
+        width: 100%;
+    }
+}

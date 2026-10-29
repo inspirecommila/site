@@ -1,0 +1,15 @@
+# Next.js 16 no Netlify. O adaptador OpenNext é aplicado automaticamente
+# a cada build; não fixe @netlify/plugin-nextjs.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Alinha navegação e assets ao deploy que gerou a página.
+  NETLIFY_NEXT_SKEW_PROTECTION = "true"
+
+# Com domínio próprio, defina NEXT_PUBLIC_SITE_URL no painel do Netlify
+# (por exemplo https://camilameneses.com.br). Sem essa variável, o site usa
+# a URL principal que o Netlify injeta no build.

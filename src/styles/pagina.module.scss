@@ -1,0 +1,165 @@
+.claro {
+    background: var(--cream-50);
+}
+
+.creme {
+    background: var(--cream-100);
+}
+
+.areia {
+    background: var(--cream-200);
+}
+
+.musgo {
+    background: var(--moss-900);
+}
+
+.titulo {
+    margin-top: 1.4rem;
+    font-size: clamp(2.4rem, 5vw, 4.4rem);
+}
+
+.imagemTitulo {
+    margin-top: 1.4rem;
+    font-size: clamp(2.6rem, 6.4vw, 6rem);
+    line-height: 0.98;
+}
+
+.tituloMenor {
+    margin-top: 1.4rem;
+    font-size: clamp(2rem, 3.6vw, 3.2rem);
+    line-height: 1.04;
+}
+
+.cabecalho {
+    display: grid;
+    gap: 1.6rem;
+    margin-bottom: clamp(2.6rem, 5vw, 4rem);
+
+    @media (min-width: 900px) {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+        align-items: end;
+        gap: 4rem;
+    }
+
+    > p:last-child {
+        color: var(--ink-soft);
+
+        :global(.dark) & {
+            color: var(--light-soft);
+        }
+    }
+}
+
+.duas {
+    display: grid;
+    gap: 3rem;
+
+    @media (min-width: 900px) {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: clamp(3rem, 8vw, 8rem);
+    }
+
+    &.alinhaCentro {
+        align-items: center;
+    }
+
+    &.alinhaFim {
+        align-items: end;
+    }
+}
+
+.texto {
+    max-width: 58ch;
+}
+
+.citacao {
+    max-width: 30ch;
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3.4vw, 3rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.18;
+
+    &::before {
+        content: '“';
+        display: block;
+        height: 0.5em;
+        font-size: 2.6em;
+        line-height: 1;
+        color: var(--gold-600);
+
+        :global(.dark) & {
+            color: var(--gold);
+        }
+    }
+}
+
+.citacaoCentral {
+    max-width: 24ch;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.fonte {
+    margin-top: 1.4rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+
+    :global(.dark) & {
+        color: var(--light-soft);
+    }
+}
+
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem 2rem;
+    margin-top: 2.4rem;
+}
+
+.foto {
+    aspect-ratio: 4 / 5;
+}
+
+.fotoArco {
+    aspect-ratio: 3 / 4;
+    border-radius: 999px 999px 0 0;
+}
+
+.fotoPaisagem {
+    aspect-ratio: 3 / 2;
+}
+
+.etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 2rem;
+
+    li {
+        padding: 0.6rem 1.1rem;
+        border: 1px solid var(--ink-faint);
+        border-radius: 999px;
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-style: italic;
+
+        :global(.dark) & {
+            border-color: var(--light-faint);
+        }
+    }
+}
+
+.nota {
+    margin-top: 1.6rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+}
+
+.espacoTopo {
+    margin-top: clamp(3rem, 7vw, 5.5rem);
+}

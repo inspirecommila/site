@@ -1,0 +1,218 @@
+.secao {
+    position: relative;
+    background: var(--moss-900);
+}
+
+.fixador {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-block: var(--section-y);
+
+    &[data-fixo='true'] {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+        padding-block: calc(var(--header-h) * 0.6) 0;
+        overflow: hidden;
+    }
+}
+
+.intro {
+    padding-inline: var(--gutter);
+
+    [data-fixo='true'] & {
+        flex: 0 0 clamp(340px, 34vw, 500px);
+        padding-left: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+        padding-right: 3rem;
+    }
+}
+
+.titulo {
+    margin-top: 1.5rem;
+    font-size: clamp(2.8rem, 5vw, 4.6rem);
+}
+
+.descricao {
+    max-width: 40ch;
+    margin-top: 1.6rem;
+    color: var(--light-soft);
+}
+
+.contador {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    color: var(--light-soft);
+}
+
+.atual {
+    min-width: 1.6rem;
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-style: italic;
+    letter-spacing: 0;
+    color: var(--gold);
+}
+
+.trilhaContador {
+    position: relative;
+    flex: 0 0 120px;
+    height: 1px;
+    background: var(--light-faint);
+
+    span {
+        position: absolute;
+        inset: 0;
+        background: var(--gold);
+        transform-origin: left;
+    }
+}
+
+.janela {
+    min-width: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    [data-fixo='true'] & {
+        flex: 1;
+        overflow: hidden;
+        scroll-snap-type: none;
+    }
+}
+
+.trilho {
+    display: flex;
+    gap: clamp(0.9rem, 1.6vw, 1.5rem);
+    width: max-content;
+    padding-inline: var(--gutter);
+
+    [data-fixo='true'] & {
+        padding-left: 0;
+        padding-right: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+    }
+}
+
+.cartao {
+    position: relative;
+    display: block;
+    flex: 0 0 auto;
+    width: min(80vw, 380px);
+    aspect-ratio: 3 / 4.4;
+    overflow: hidden;
+    scroll-snap-align: center;
+    background: var(--moss-800);
+
+    [data-fixo='true'] & {
+        width: auto;
+        height: min(74vh, 640px);
+    }
+
+    &:hover {
+        .imagem img {
+            transform: scale(1.06);
+        }
+
+        .sombra {
+            opacity: 1;
+        }
+
+        .conhecer {
+            opacity: 1;
+            transform: none;
+        }
+    }
+}
+
+.imagem {
+    position: absolute;
+    inset: 0;
+
+    img {
+        object-fit: cover;
+        transition: transform 1.4s var(--ease-out);
+    }
+}
+
+.sombra {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(21, 26, 20, 0.05) 30%, rgba(21, 26, 20, 0.92) 100%);
+    opacity: 0.9;
+    transition: opacity 0.6s;
+}
+
+.conteudo {
+    position: absolute;
+    inset: auto 0 0;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(1.3rem, 2vw, 2rem);
+    color: var(--cream-100);
+}
+
+.numero {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+}
+
+.nome {
+    margin-top: 0.6rem;
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.02;
+}
+
+.resumo {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--light-soft);
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.1rem;
+
+    span {
+        padding: 0.3rem 0.6rem;
+        border: 1px solid rgba(241, 235, 225, 0.25);
+        font-size: 0.6rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+    }
+}
+
+.conhecer {
+    margin-top: 1.3rem;
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+        opacity 0.4s,
+        transform 0.6s var(--ease-out);
+
+    @media (hover: none) {
+        opacity: 1;
+        transform: none;
+    }
+}

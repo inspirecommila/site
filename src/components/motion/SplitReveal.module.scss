@@ -1,0 +1,20 @@
+.linha {
+    display: inline;
+
+    @media (min-width: 600px) {
+        display: block;
+    }
+}
+
+.mascara {
+    display: inline-block;
+    overflow: hidden;
+    padding-bottom: 0.08em;
+    margin-bottom: -0.08em;
+    vertical-align: top;
+}
+
+.palavra {
+    display: inline-block;
+    will-change: transform;
+}

@@ -1,0 +1,131 @@
+.hero {
+    position: relative;
+    min-height: max(100svh, 640px);
+    overflow: hidden;
+    background: var(--moss-900);
+}
+
+.retrato {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(180deg, rgba(28, 34, 27, 0.45) 0%, rgba(28, 34, 27, 0) 30%),
+            linear-gradient(0deg, rgba(28, 34, 27, 0.98) 8%, rgba(28, 34, 27, 0.55) 45%, rgba(28, 34, 27, 0) 70%);
+    }
+
+    @media (min-width: 900px) {
+        inset: 0 0 0 auto;
+        width: 46vw;
+
+        &::after {
+            background:
+                linear-gradient(90deg, rgba(28, 34, 27, 1) 0%, rgba(28, 34, 27, 0) 28%),
+                linear-gradient(0deg, rgba(28, 34, 27, 0.6) 0%, rgba(28, 34, 27, 0) 30%);
+        }
+    }
+}
+
+.retratoCamada {
+    position: absolute;
+    inset: 0;
+
+    img {
+        object-fit: cover;
+        object-position: center 22%;
+    }
+}
+
+.conteudo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: max(100svh, 640px);
+    max-width: var(--max);
+    margin-inline: auto;
+    padding: calc(var(--header-h) + 2rem) var(--gutter) clamp(3rem, 7vw, 5.5rem);
+}
+
+.titulo {
+    margin-top: 1.6rem;
+    font-size: clamp(2.7rem, 7vw, 7.4rem);
+    line-height: 0.96;
+}
+
+.rodape {
+    display: grid;
+    gap: 2rem;
+    margin-top: clamp(2rem, 4vw, 3.2rem);
+
+    @media (min-width: 900px) {
+        grid-template-columns: minmax(0, 34ch) auto;
+        align-items: end;
+        gap: 4rem;
+    }
+}
+
+.lead {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--light-soft);
+}
+
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem 2rem;
+}
+
+.rolar {
+    position: absolute;
+    right: var(--gutter);
+    bottom: clamp(3rem, 7vw, 5.5rem);
+    z-index: 2;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    color: var(--light-soft);
+
+    @media (min-width: 1280px) {
+        display: flex;
+    }
+}
+
+.rolarLinha {
+    position: relative;
+    width: 1px;
+    height: 64px;
+    overflow: hidden;
+    background: var(--light-faint);
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--gold);
+        animation: descer 2.2s var(--ease-out) infinite;
+    }
+}
+
+@keyframes descer {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(100%);
+    }
+}

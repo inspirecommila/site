@@ -1,0 +1,46 @@
+.raiz {
+    position: relative;
+}
+
+.quadro {
+    position: relative;
+    height: clamp(520px, 100svh, 980px);
+    overflow: hidden;
+    background: var(--moss-900);
+}
+
+.camada {
+    position: absolute;
+    inset: 0;
+    will-change: transform;
+
+    img {
+        object-fit: cover;
+    }
+}
+
+.veu {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(21, 26, 20, 0.15) 0%, rgba(21, 26, 20, 0.35) 50%, rgba(21, 26, 20, 0.85) 100%);
+}
+
+.conteudo {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--gutter);
+    padding-bottom: clamp(2.5rem, 7vw, 5.5rem);
+    color: var(--cream-100);
+
+    :global(.eyebrow) {
+        color: var(--gold);
+    }
+
+    @media (min-width: 900px) {
+        padding-left: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+    }
+}

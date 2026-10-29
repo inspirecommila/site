@@ -1,0 +1,215 @@
+.header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 50;
+    color: var(--cream-100);
+    transition:
+        transform 0.6s var(--ease-out),
+        background-color 0.5s ease,
+        border-color 0.5s ease;
+    border-bottom: 1px solid transparent;
+
+    &[data-solido='true'] {
+        background: rgba(28, 34, 27, 0.86);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom-color: var(--light-faint);
+    }
+
+    &[data-oculto='true'] {
+        transform: translateY(-100%);
+    }
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: var(--header-h);
+    max-width: var(--max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+}
+
+.logo {
+    margin-right: auto;
+}
+
+.nav {
+    display: none;
+    gap: 1.9rem;
+
+    @media (min-width: 1140px) {
+        display: flex;
+    }
+}
+
+.link {
+    position: relative;
+    padding-block: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--light-soft);
+    transition: color 0.3s;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s var(--ease-out);
+    }
+
+    &:hover,
+    &[data-ativo='true'] {
+        color: var(--cream-100);
+
+        &::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    }
+}
+
+.cta {
+    display: none;
+    align-items: center;
+    height: 42px;
+    padding-inline: 1.3rem;
+    border: 1px solid rgba(241, 235, 225, 0.35);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition:
+        background 0.35s,
+        color 0.35s,
+        border-color 0.35s;
+
+    &:hover {
+        background: var(--cream-100);
+        border-color: var(--cream-100);
+        color: var(--moss-900);
+    }
+
+    @media (min-width: 720px) {
+        display: inline-flex;
+    }
+}
+
+.toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+
+    @media (min-width: 1140px) {
+        display: none;
+    }
+}
+
+.toggleIcon {
+    position: relative;
+    width: 26px;
+    height: 8px;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: currentColor;
+        transition: transform 0.45s var(--ease-out);
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+    }
+
+    &[data-aberto='true'] {
+        &::before {
+            transform: translateY(3.5px) rotate(18deg);
+        }
+
+        &::after {
+            transform: translateY(-3.5px) rotate(-18deg);
+        }
+    }
+}
+
+.menu {
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: calc(var(--header-h) + 2rem) var(--gutter) 2rem;
+    background: var(--moss-900);
+    color: var(--cream-100);
+    overflow-y: auto;
+}
+
+.menuNav {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuItem {
+    overflow: hidden;
+    border-bottom: 1px solid var(--light-faint);
+
+    a {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        padding: 0.7rem 0;
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 8vw, 3.2rem);
+        font-weight: 500;
+        line-height: 1.1;
+
+        &[data-ativo='true'] {
+            font-style: italic;
+            color: var(--gold);
+        }
+    }
+
+    small {
+        min-width: 1.6rem;
+        font-family: var(--font-sans);
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        color: var(--gold);
+    }
+}
+
+.menuRodape {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    padding-top: 2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light-soft);
+}

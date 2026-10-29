@@ -1,0 +1,95 @@
+.galeria {
+    position: relative;
+}
+
+.area {
+    position: relative;
+
+    @media (hover: hover) and (pointer: fine) {
+        cursor: none;
+    }
+}
+
+.viewport {
+    overflow: hidden;
+    padding-left: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+}
+
+.trilho {
+    display: flex;
+    gap: clamp(0.8rem, 1.4vw, 1.3rem);
+    touch-action: pan-y pinch-zoom;
+
+    &::after {
+        content: '';
+        flex: 0 0 var(--gutter);
+    }
+}
+
+.slide {
+    position: relative;
+    flex: 0 0 auto;
+    height: clamp(300px, 58vh, 600px);
+    overflow: hidden;
+    background: var(--moss-800);
+    user-select: none;
+
+    img {
+        object-fit: cover;
+        pointer-events: none;
+    }
+
+    figcaption {
+        position: absolute;
+        left: 1rem;
+        bottom: 0.9rem;
+        font-family: var(--font-serif);
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--cream-100);
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: 92px;
+    height: 92px;
+    margin: -46px 0 0 -46px;
+    border-radius: 50%;
+    background: var(--cream-100);
+    color: var(--moss-900);
+    font-size: 0.64rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    pointer-events: none;
+
+    @media (hover: none), (pointer: coarse) {
+        display: none;
+    }
+}
+
+.barra {
+    margin-top: 2rem;
+
+    > span {
+        position: relative;
+        display: block;
+        height: 1px;
+        background: color-mix(in srgb, currentColor 18%, transparent);
+    }
+
+    > span > span {
+        position: absolute;
+        inset: 0;
+        background: currentColor;
+        transform-origin: left;
+        transition: transform 0.2s linear;
+    }
+}

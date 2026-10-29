@@ -1,0 +1,16 @@
+.texto {
+    font-family: var(--font-serif);
+    font-size: clamp(1.9rem, 4.1vw, 3.6rem);
+    font-weight: 500;
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+}
+
+.enfase {
+    font-style: italic;
+    color: var(--gold-600);
+
+    :global(.dark) & {
+        color: var(--gold);
+    }
+}

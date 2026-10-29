@@ -1,0 +1,97 @@
+.diagrama {
+    position: relative;
+}
+
+.legenda {
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+}
+
+.fruto {
+    padding-bottom: 2.4rem;
+}
+
+.frutos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1.6rem;
+
+    li {
+        padding: 0.65rem 1.1rem;
+        border: 1px solid var(--light-faint);
+        border-radius: 999px;
+        font-family: var(--font-serif);
+        font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+        font-style: italic;
+        color: var(--cream-100);
+    }
+}
+
+.solo {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold) 15%, var(--gold) 85%, transparent);
+
+    span {
+        position: absolute;
+        left: 50%;
+        top: -5px;
+        width: 11px;
+        height: 11px;
+        border: 1px solid var(--gold);
+        background: var(--moss-900);
+        transform: translateX(-50%) rotate(45deg);
+    }
+}
+
+.raiz {
+    padding-top: 2rem;
+
+    .legenda {
+        margin-bottom: 0.5rem;
+    }
+}
+
+.palco {
+    position: relative;
+    max-width: 920px;
+    margin-inline: auto;
+}
+
+.svg {
+    display: block;
+    width: 100%;
+    height: 320px;
+    color: var(--gold);
+    overflow: visible;
+
+    @media (min-width: 700px) {
+        height: auto;
+    }
+}
+
+.rotulo {
+    position: absolute;
+    padding: 0.25rem 0.4rem;
+    background: var(--moss-900);
+    font-family: var(--font-serif);
+    font-size: clamp(0.85rem, 1.7vw, 1.35rem);
+    font-weight: 500;
+    line-height: 1.15;
+    text-align: center;
+    width: max-content;
+    max-width: 7.5em;
+    color: var(--cream-100);
+    translate: -50% -50%;
+
+    @media (min-width: 700px) {
+        padding: 0.35rem 0.75rem;
+        max-width: 9em;
+    }
+}

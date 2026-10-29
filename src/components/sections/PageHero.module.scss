@@ -1,0 +1,117 @@
+.hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    background: var(--moss-900);
+
+    @media (min-width: 900px) {
+        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+        min-height: max(100svh, 680px);
+    }
+}
+
+.midia {
+    position: relative;
+    height: 72svh;
+    min-height: 420px;
+
+    @media (min-width: 900px) {
+        grid-column: 2;
+        grid-row: 1;
+        height: auto;
+    }
+
+    &:not([data-contida='true'])::after {
+        content: '';
+        position: absolute;
+        inset: 0 0 auto;
+        z-index: 1;
+        height: calc(var(--header-h) + 7rem);
+        background: linear-gradient(to bottom, rgb(21 26 20 / 0.72), rgb(21 26 20 / 0));
+        pointer-events: none;
+    }
+
+    &[data-contida='true'] {
+        display: flex;
+        align-items: center;
+        height: auto;
+        min-height: 0;
+        padding: calc(var(--header-h) + 1rem) var(--gutter) 0;
+
+        @media (min-width: 900px) {
+            padding: calc(var(--header-h) + 2rem) max(var(--gutter), 3vw) 3rem 0;
+        }
+
+        .foto {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1024 / 853;
+            background: var(--cream-200);
+        }
+    }
+}
+
+.foto {
+    position: absolute;
+    inset: 0;
+
+    [data-contida='true'] & {
+        position: relative;
+        height: 100%;
+    }
+}
+
+.texto {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2.5rem var(--gutter) clamp(3rem, 7vw, 5.5rem);
+
+    @media (min-width: 900px) {
+        grid-column: 1;
+        grid-row: 1;
+        padding-top: calc(var(--header-h) + 4rem);
+        padding-left: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+        padding-right: clamp(2rem, 5vw, 5rem);
+    }
+}
+
+.titulo {
+    margin-top: 1.6rem;
+    font-size: clamp(2.6rem, 8.4vw, 4rem);
+
+    @media (min-width: 900px) {
+        font-size: clamp(2.6rem, 4.4vw, 4.9rem);
+    }
+}
+
+.lead {
+    max-width: 46ch;
+    margin-top: 1.8rem;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2rem;
+
+    span {
+        padding: 0.45rem 0.85rem;
+        border: 1px solid var(--light-faint);
+        font-size: 0.68rem;
+        font-weight: 400;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--light-soft);
+    }
+}
+
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.6rem;
+    margin-top: 2.4rem;
+}

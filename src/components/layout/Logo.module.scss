@@ -1,0 +1,36 @@
+.logo {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.nome {
+    font-family: var(--font-serif);
+    font-size: 1.55rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+
+    em {
+        font-style: italic;
+    }
+}
+
+.assinatura {
+    margin-top: 0.3rem;
+    font-size: 0.56rem;
+    font-weight: 500;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+.logo[data-tamanho='grande'] {
+    .nome {
+        font-size: clamp(2.4rem, 5vw, 3.6rem);
+    }
+
+    .assinatura {
+        margin-top: 0.6rem;
+        font-size: 0.68rem;
+    }
+}

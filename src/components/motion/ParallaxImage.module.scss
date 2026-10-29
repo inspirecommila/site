@@ -1,0 +1,16 @@
+.quadro {
+    position: relative;
+    overflow: hidden;
+    background: var(--moss-800);
+}
+
+.camada {
+    position: absolute;
+    left: 0;
+    right: 0;
+    will-change: transform;
+
+    img {
+        object-fit: cover;
+    }
+}
