@@ -30,6 +30,7 @@ const INCLUSO_LUMINA = [
     'Áudios e conteúdos complementares',
     'Desafios práticos',
     'Grupo exclusivo no WhatsApp',
+    'Lenço Filha amada de presente',
     'Participações especiais',
 ];
 
@@ -179,6 +180,9 @@ export default function Home() {
                                 </Botao>
                                 <Botao href="/comunidade-lumina" variante="texto" tom="claro">
                                     Conhecer a comunidade
+                                </Botao>
+                                <Botao href="/comunidade-lumina#elas-multiplicam" variante="texto" tom="claro">
+                                    Elas Multiplicam
                                 </Botao>
                             </Reveal>
                         </div>

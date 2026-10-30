@@ -14,6 +14,7 @@ import Luz from '@/components/motion/Luz';
 import Botao from '@/components/ui/Botao';
 import { DEPOIMENTOS_LUMINA, LINKS, LUMINA } from '@/content/site';
 import s from '@/styles/pagina.module.scss';
+import n from './novos.module.scss';
 
 export const metadata: Metadata = {
     title: 'Comunidade LÚMINA',
@@ -42,6 +43,7 @@ const INCLUSO = [
     { titulo: 'Desafios práticos', texto: 'Propostas para desenvolver constância, autocuidado, posicionamento e novas atitudes.' },
     { titulo: 'Grupo exclusivo de WhatsApp', texto: 'Espaço de comunicação, apoio coletivo, interação e orientações.' },
     { titulo: 'Participações especiais', texto: 'Convidadas falando sobre Palavra de Deus, nutrição, atividade física, autocuidado e desenvolvimento pessoal.' },
+    { titulo: 'Lenço Filha amada', texto: 'Um lenço da comunidade, enviado para quem já participa e para cada mulher que entrar a partir de agora.' },
 ];
 
 const PILARES = [
@@ -76,6 +78,19 @@ const PILARES = [
         texto: 'Cultivar intimidade com Deus, aprofundar o conhecimento da Palavra e fortalecer a identidade espiritual.',
         imagem: '/images/camila-vermelho-oracao.webp',
     },
+];
+
+const CONVITES = [
+    { titulo: 'Convide', texto: 'Outras mulheres para conhecerem a LÚMINA.' },
+    { titulo: 'Ajude', texto: 'Mais mulheres a viverem essa jornada.' },
+    { titulo: 'Receba', texto: 'Uma comissão por cada nova inscrição feita pelo seu link.' },
+];
+
+const PASSOS_ELAS = [
+    { titulo: 'Cadastro', texto: 'Você se cadastra como afiliada na Kiwify, pelo link que a Camila envia.' },
+    { titulo: 'Aprovação', texto: 'Camila aprova a sua solicitação.' },
+    { titulo: 'Seu link', texto: 'Você pega o link exclusivo direto na plataforma.' },
+    { titulo: 'Comissão', texto: 'Sempre que uma mulher entrar na LÚMINA por esse link, você recebe a comissão.' },
 ];
 
 const BENEFICIOS = [
@@ -219,12 +234,57 @@ export default function LuminaPage() {
                 </div>
             </section>
 
+            <section id="lenco" className={`${s.areia} ${n.ancora} section`}>
+                <div className="container">
+                    <div className={s.cabecalho}>
+                        <div>
+                            <Reveal as="p" className="eyebrow">
+                                Um presente
+                            </Reveal>
+                            <SplitReveal texto="Filha *amada.*" className={`display ${s.titulo}`} />
+                        </div>
+                        <Reveal as="p" delay={0.1}>
+                            Cada mulher da Comunidade LÚMINA recebe um lenço feito para ela.
+                        </Reveal>
+                    </div>
+                    <div className={n.lencoGrade}>
+                        <ParallaxImage
+                            src="/images/filha-amada-ondas.webp"
+                            alt="Estampa Filha amada, da Comunidade LÚMINA, com faixas orgânicas em verde"
+                            sizes="(max-width: 900px) 100vw, 24vw"
+                            className={n.onda}
+                            inteira
+                            revelar="lados"
+                        />
+                        <ParallaxImage
+                            src="/images/lenco-filha-amada.webp"
+                            alt="Lenço Filha amada usado no pescoço, na bolsa, no pulso, no cabelo e na calça"
+                            sizes="(max-width: 900px) 100vw, 46vw"
+                            className={n.lenco}
+                            inteira
+                            revelar="baixo"
+                            atraso={0.08}
+                        />
+                        <ParallaxImage
+                            src="/images/filha-amada-listras.webp"
+                            alt="Estampa Filha amada, da Comunidade LÚMINA, com moldura listrada"
+                            sizes="(max-width: 900px) 100vw, 24vw"
+                            className={n.listra}
+                            inteira
+                            revelar="lados"
+                            atraso={0.14}
+                        />
+                    </div>
+                </div>
+            </section>
+
             <Investimento
                 titulo={'Um ano inteiro\nde *processo*'}
                 valor={LUMINA.preco}
                 complemento={`por ano · ou ${LUMINA.parcelamento}`}
                 detalhes={[
                     'Acesso anual, com duração de 12 meses',
+                    'Lenço Filha amada, presente de cada participante',
                     'Encontros ao vivo e aulas gravadas na plataforma',
                     'Materiais, exercícios, áudios e desafios práticos',
                     'Grupo exclusivo de WhatsApp',
@@ -241,6 +301,59 @@ export default function LuminaPage() {
                 }
                 nota="Parcelamento conforme as condições da plataforma Kiwify. Quem participou da Imersão RAIZ pode usar o valor como crédito para ingressar na comunidade, conforme as condições da campanha."
             />
+
+            <section id="elas-multiplicam" className={`${s.creme} ${n.ancora} section`}>
+                <div className="container">
+                    <div className={s.cabecalho}>
+                        <div>
+                            <Reveal as="p" className="eyebrow">
+                                Programa de indicação
+                            </Reveal>
+                            <SplitReveal texto="Elas *multiplicam*" className={`display ${s.titulo}`} />
+                        </div>
+                        <Reveal as="p" delay={0.1}>
+                            Uma mulher alcança outra. Juntas, multiplicamos transformação e oportunidades.
+                        </Reveal>
+                    </div>
+                    <ul className={n.convites}>
+                        {CONVITES.map((item, i) => (
+                            <Reveal as="li" key={item.titulo} delay={i * 0.06}>
+                                <h3>{item.titulo}</h3>
+                                <p>{item.texto}</p>
+                            </Reveal>
+                        ))}
+                    </ul>
+                    <div className={`${s.duas} ${s.alinhaCentro} ${s.espacoTopo}`}>
+                        <div>
+                            <Reveal as="p" className="eyebrow">
+                                Como funciona
+                            </Reveal>
+                            <SplitReveal
+                                texto="Toda mulher da LÚMINA pode *indicar.*"
+                                className={`display ${s.tituloMenor}`}
+                            />
+                            <Reveal as="p" className={n.chamada} delay={0.08}>
+                                O Elas Multiplicam é o programa de indicação da comunidade. Você convida outras
+                                mulheres e recebe uma comissão por cada nova inscrição feita pela sua indicação.
+                            </Reveal>
+                        </div>
+                        <ListaNumerada itens={PASSOS_ELAS} colunas={1} />
+                    </div>
+                    <Reveal as="blockquote" className={`${s.citacao} ${s.espacoTopo}`}>
+                        Não é sobre vender. É sobre compartilhar o que transforma.
+                    </Reveal>
+                    <Reveal as="p" className={n.chamada} delay={0.08}>
+                        Você não precisa ser influenciadora, ter muitos seguidores ou experiência em vendas. Pode
+                        começar indicando amigas, familiares e mulheres que se beneficiariam dessa jornada.
+                    </Reveal>
+                    <Reveal className={s.acoes} delay={0.12}>
+                        <Botao href={LINKS.whatsappElas}>Quero fazer parte</Botao>
+                        <Botao href={LINKS.checkoutLumina} variante="texto">
+                            Entrar na LÚMINA
+                        </Botao>
+                    </Reveal>
+                </div>
+            </section>
 
             <OutrosCaminhos atual="/comunidade-lumina" />
             <ConviteFinal

@@ -40,6 +40,9 @@ export default function Footer() {
                             <li>
                                 <Link href="/#parcerias">Parcerias</Link>
                             </li>
+                            <li>
+                                <Link href="/comunidade-lumina#elas-multiplicam">Elas Multiplicam</Link>
+                            </li>
                         </ul>
                     </div>
                     <div>

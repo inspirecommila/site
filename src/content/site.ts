@@ -16,6 +16,7 @@ export const LINKS = {
     checkoutLumina: 'https://pay.kiwify.com.br/yNDMXCs',
     checkoutLivro: 'https://pay.kiwify.com.br/LEGuFPG',
     whatsappLumina: whatsapp('Olá, Camila! Vim pelo site e quero saber mais sobre a Comunidade LÚMINA.'),
+    whatsappElas: whatsapp('Olá, Camila! Vim pelo site e quero fazer parte do Elas Multiplicam.'),
     whatsappRaiz: whatsapp('Olá, Camila! Vim pelo site e quero reservar minha vaga na Imersão RAIZ.'),
     whatsappAcompanhamento: whatsapp(
         'Olá, Camila! Vim pelo site e quero saber sobre o acompanhamento individual.',
